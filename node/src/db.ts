@@ -4,8 +4,9 @@ const pool: Pool = new pg.Pool({
     user: 'carloshehe',
     password: 'abcabc',
     database: 'pokedex',
-    host: 'localhost',
+    host: 'host.docker.internal',
     port: 5432
 });
 
-export default module.exports = pool;
+//export default module.exports = pool;
+export default pool;
