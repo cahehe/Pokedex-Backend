@@ -14,11 +14,13 @@ const app: express.Application = express();
 app.use(express.json()) //used to request body
 
 app.get('/', (req: Request, res: Response) => {
+    res.header("Access-Control-Allow-Origin", "*");
     res.send("Hello from Carlos:");
 }) 
 
 //get all 
 app.get('/all', async (req: Request, res: Response) => {
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         const all = await pool.query("SELECT * FROM GENERAL WHERE POKEDEX_NUMBER < 10; ")
         res.json(all.rows);
