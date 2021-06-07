@@ -18,17 +18,67 @@ app.get('/', (req: Request, res: Response) => {
     res.send("Hello from Carlos:");
 }) 
 
-//get all 
-app.get('/all', async (req: Request, res: Response) => {
+//get general info 
+app.get('/general', async (req: Request, res: Response) => {
     res.header("Access-Control-Allow-Origin", "*");
     try{
-        const all = await pool.query("SELECT * FROM GENERAL WHERE POKEDEX_NUMBER < 10; ")
+        const all = await pool.query("SELECT * FROM GENERAL; ")
         res.json(all.rows);
     }
     catch(err: any){
         console.log(err.message);
     }
 })
+
+//pokedexinfo
+app.get('/pokedexinfo', async (req: Request, res: Response) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    try{
+        const data = await pool.query("SELECT * FROM POKEDEXINFO; ")
+        res.json(data.rows)
+    }
+    catch(err: any){
+        console.log(err.message)
+    }
+})
+
+//abilities
+app.get('/abilities', async (req: Request, res: Response) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    try{
+        const data = await pool.query("SELECT * FROM ABILITIES; ")
+        res.json(data.rows)
+    }
+    catch(err: any){
+        console.log(err.message)
+    }
+})
+
+//basic stats
+app.get('/basicstats', async (req: Request, res: Response) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    try{
+        const data = await pool.query("SELECT * FROM BASICSTATS; ")
+        res.json(data.rows)
+    }
+    catch(err: any){
+        console.log(err.message)
+    }
+})
+
+//training
+app.get('/training', async (req: Request, res: Response) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    try{
+        const data = await pool.query("SELECT * FROM TRAINING; ")
+        res.json(data.rows)
+    }
+    catch(err: any){
+        console.log(err.message)
+    }
+})
+
+
 
 //export default module.exports = pool;
 export default app;
