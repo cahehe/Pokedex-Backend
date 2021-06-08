@@ -34,7 +34,8 @@ app.get('/general', async (req: Request, res: Response) => {
 app.get('/pokedexinfo', async (req: Request, res: Response) => {
     res.header("Access-Control-Allow-Origin", "*");
     try{
-        const data = await pool.query("SELECT * FROM POKEDEXINFO; ")
+        const param = req.query['name']
+        const data = await pool.query(`SELECT * FROM POKEDEXINFO WHERE NAME = '${param}'; `)                
         res.json(data.rows)
     }
     catch(err: any){
@@ -46,7 +47,8 @@ app.get('/pokedexinfo', async (req: Request, res: Response) => {
 app.get('/abilities', async (req: Request, res: Response) => {
     res.header("Access-Control-Allow-Origin", "*");
     try{
-        const data = await pool.query("SELECT * FROM ABILITIES; ")
+        const param = req.query['name']
+        const data = await pool.query(`SELECT * FROM ABILITIES WHERE NAME = '${param}'; `)                
         res.json(data.rows)
     }
     catch(err: any){
@@ -58,7 +60,8 @@ app.get('/abilities', async (req: Request, res: Response) => {
 app.get('/basicstats', async (req: Request, res: Response) => {
     res.header("Access-Control-Allow-Origin", "*");
     try{
-        const data = await pool.query("SELECT * FROM BASICSTATS; ")
+        const param = req.query['name']
+        const data = await pool.query(`SELECT * FROM BASICSTATS WHERE NAME = '${param}'; `)                
         res.json(data.rows)
     }
     catch(err: any){
@@ -70,7 +73,8 @@ app.get('/basicstats', async (req: Request, res: Response) => {
 app.get('/training', async (req: Request, res: Response) => {
     res.header("Access-Control-Allow-Origin", "*");
     try{
-        const data = await pool.query("SELECT * FROM TRAINING; ")
+        const param = req.query['name']
+        const data = await pool.query(`SELECT * FROM TRAINING WHERE NAME = '${param}'; `)                
         res.json(data.rows)
     }
     catch(err: any){
