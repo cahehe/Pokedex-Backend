@@ -82,6 +82,18 @@ app.get('/training', async (req: Request, res: Response) => {
     }
 })
 
+//maxes
+app.get('/max', async (req: Request, res: Response) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    try{
+        const all = await pool.query("SELECT * FROM MAXVALS(); ")
+        res.json(all.rows);
+    }
+    catch(err: any){
+        console.log(err.message);
+    }
+})
+
 
 
 //export default module.exports = pool;

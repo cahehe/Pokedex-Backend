@@ -169,3 +169,33 @@ CREATE TABLE ExtraStats(
     speed INT,
 )
 */
+
+
+CREATE TYPE max_vals AS (total_points INT,
+    hp INT,
+    attack INT,
+    defense INT,
+    sp_attack INT,
+    sp_defense INT,
+    speed INT);
+
+CREATE FUNCTION maxVals() RETURNS max_vals
+as
+$$
+DECLARE
+    vals max_vals;
+BEGIN
+    SELECT MAX(total_points) INTO vals.total_points FROM BasicStats;  
+    SELECT MAX(hp) INTO vals.hp FROM BasicStats;  
+    SELECT MAX(attack) INTO vals.attack FROM BasicStats;  
+    SELECT MAX(defense) INTO vals.defense FROM BasicStats;  
+    SELECT MAX(sp_attack) INTO vals.sp_attack FROM BasicStats;  
+    SELECT MAX(sp_defense) INTO vals.sp_defense FROM BasicStats;  
+    SELECT MAX(speed) INTO vals.speed FROM BasicStats;  
+
+    RETURN vals;
+END
+$$
+LANGUAGE plpgsql;
+
+
