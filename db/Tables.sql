@@ -138,6 +138,13 @@ INSERT INTO BasicStats
 SELECT name, total_points, hp, attack, defense, sp_attack,
     sp_defense, speed FROM AllData;
 
+
+CREATE TABLE Images(
+    name VARCHAR(50),
+    link VaRCHAR(100),
+    FOREIGN KEY(name) REFERENCES general(name)
+);
+
 /*
 CREATE TABLE BasicStats(
     id SERIAL,

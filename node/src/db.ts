@@ -95,6 +95,19 @@ app.get('/max', async (req: Request, res: Response) => {
 })
 
 
+//images
+app.get('/images', async (req: Request, res: Response) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    try{        
+        const param = req.query['name']
+        const data = await pool.query(`SELECT link FROM IMAGES WHERE NAME = '${param}'; `)                
+        res.json(data.rows)
+    }
+    catch(err: any){
+        console.log(err.message)
+    }
+})
+
 
 //export default module.exports = pool;
 export default app;
