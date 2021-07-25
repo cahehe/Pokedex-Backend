@@ -1,12 +1,15 @@
 import pg, { Pool } from 'pg';
 import express, {Request, Response} from 'express';
 
+
+const config = require("../config.json")
+
 const pool: Pool = new pg.Pool({
-    user: 'carloshehe',
-    password: 'abcabc',
-    database: 'pokedex',
-    host: 'host.docker.internal',
-    port: 5432
+    user: config.db.user,
+    password: config.db.password,
+    database: config.db.database,
+    host: config.db.host,
+    port: config.db.port
 });
 
 const app: express.Application = express();
