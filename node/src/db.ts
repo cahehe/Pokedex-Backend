@@ -1,16 +1,25 @@
-import pg, { Pool } from 'pg';
+import pg, { Pool, Client } from 'pg';
 import express, {Request, Response} from 'express';
 
 
 const config = require("../config.json")
 
-const pool: Pool = new pg.Pool({
-    user: config.db.user,
-    password: config.db.password,
-    database: config.db.database,
-    host: config.db.host,
-    port: config.db.port
-});
+// const pool: Pool = new pg.Pool({
+//     user: config.db.user,
+//     password: config.db.password,
+//     database: config.db.database,
+//     host: config.db.host,
+//     port: config.db.port
+// });
+
+const pool = new Client({
+    connectionString: config.heroku.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
+  
+pool.connect();
 
 const app: express.Application = express();
 

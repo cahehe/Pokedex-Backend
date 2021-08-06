@@ -70,8 +70,8 @@ CREATE TABLE General(
 Insert data from CSV
 use header option to ignore the first row 
 */
-COPY AllData
-FROM '/Users/carloshehe/Desktop/github/Pokedex/db/data.csv' CSV HEADER;
+\COPY AllData
+FROM '/Users/carloshehe/Desktop/github/Pokedex-Backend/db/pokedex_(Update_05.20).csv' CSV HEADER;
 
 --now insert appropriate rows into general
 INSERT INTO General
