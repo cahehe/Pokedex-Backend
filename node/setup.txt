@@ -3,7 +3,9 @@ https://www.youtube.com/watch?v=zRo2tvQpus8&ab_channel=TraversyMedia
 
 //first I created a package.json with the command below. The -y means skip the interactive process and say yes to all questions
 npm init -y
-//uncommented "outDir" and "rootDir" options in tsconfig so it nows where to compile and save compiled file with the tsc command
+
+//create a tsc.config file uncommented "outDir" and "rootDir" options in tsconfig so it nows where to compile and save compiled file with the tsc command
+tsc --init
 
 //install typescript if its not installed already
 npm install typescript
