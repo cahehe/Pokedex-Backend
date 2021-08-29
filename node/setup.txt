@@ -16,8 +16,12 @@ npm install express
 //also nodemon and ts-node. -d indicates dev dependencies
 npm installs -d nodemon ts-node
 
-//If I get a sh:ts-node command not found then do the command below
+//If I get a sh:ts-node command not found
+//I can install it globally
 npm install -g ts-node
+
+//or as a dev dependency
+npm install ts-node
 
 //since I'm using express with typescript I need to install it like this
 npm install @types/express
