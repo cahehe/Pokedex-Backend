@@ -1,1 +1,6 @@
 /node/config.json
+/db/db.py
+/db/upload.js
+/db/upload.py
+/db/__pycache__
+//db/data.csv

@@ -145,38 +145,6 @@ CREATE TABLE Images(
     FOREIGN KEY(name) REFERENCES general(name)
 );
 
-/*
-CREATE TABLE BasicStats(
-    id SERIAL,
-    abilities_number SMALLINT,
-    ability_1 VARCHAR(50),
-    ability_2 VARCHAR(50),
-    ability_hidden VARCHAR(50),    
-    catch_rate INT,
-    base_friendship INT,
-    base_experience INT,
-    growth_rate VARCHAR(50),
-    egg_type_number SMALLINT,
-    egg_type_1 VARCHAR(50),
-    egg_type_2 VARCHAR(50),
-    percentage_male REAL,
-    egg_cycles INT,
-    FOREIGN KEY(ID) REFERENCES general(ID)
-)
-
-CREATE TABLE ExtraStats(
-    height_m REAL,
-    weight_kg REAL,
-    total_points INT,
-    hp INT,
-    attack INT,
-    defense INT,
-    sp_attack INT,
-    sp_defense INT,
-    speed INT,
-)
-*/
-
 
 CREATE TYPE max_vals AS (total_points INT,
     hp INT,

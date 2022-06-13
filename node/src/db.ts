@@ -17,8 +17,8 @@ const app: express.Application = express();
 app.use(express.json()) //used to request body
 
 app.get('/', (req: Request, res: Response) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.send("Hello from Carlos:");
+    //Allow any origin to access this service
+    res.header("Access-Control-Allow-Origin", "*");    
 }) 
 
 //get general info 
@@ -110,7 +110,6 @@ app.get('/images', async (req: Request, res: Response) => {
         console.log(err.message)
     }
 })
-
 
 //export default module.exports = pool;
 export default app;
